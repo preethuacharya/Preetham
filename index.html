@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Preetham's Website</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Great+Vibes&family=Jost:wght@200;300&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#fff;--soft:#c9bfe0;--peach:#e8b4a6;--gold:#dcc28f;--black:#05030b;--line:rgba(255,255,255,.13);--glass:rgba(255,255,255,.045);box-sizing:border-box}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--ink);font-family:"Jost",system-ui,sans-serif;font-weight:200;line-height:1.85;letter-spacing:.04em;
+  background-image:radial-gradient(ellipse 70% 30% at 100% 35%,rgba(110,70,200,.16),transparent 70%),radial-gradient(ellipse 70% 30% at 0% 75%,rgba(232,180,166,.08),transparent 70%)}
+[data-page]{display:none}[data-page].on{display:block}
+
+/* Channel-style banner strip */
+.banner{position:relative;height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:env(safe-area-inset-top,0px) 20px 0;overflow:hidden;
+  background:
+   radial-gradient(ellipse 70% 120% at 100% 110%,#a77be8 0%,#6b3fc4 26%,rgba(60,25,120,.5) 52%,transparent 80%),
+   radial-gradient(ellipse 85% 160% at 0% 0%,#e3a597 0%,#8a63b0 20%,#43309a 42%,#150c45 66%,transparent 92%),#030208}
+.banner:after{content:"";position:absolute;inset:auto 0 0;height:60px;background:linear-gradient(transparent,var(--black))}
+.script{font-family:"Great Vibes","Snell Roundhand","Brush Script MT",cursive;font-size:clamp(1.7rem,7.5vw,2.4rem);line-height:1.2;color:#f4eafc;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:300;font-size:clamp(1.9rem,8.5vw,3rem);letter-spacing:.1em;line-height:1.2;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+.banner>*{position:relative;z-index:1;animation:rise 1.5s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}}
+
+.handle{text-align:center;color:var(--gold);font-family:"Cormorant Garamond",serif;font-weight:400;font-size:1.05rem;letter-spacing:.5em;margin-top:4px;padding-left:.5em}
+.handle:after{content:"";display:block;width:38px;height:1px;background:var(--gold);margin:10px auto 0;opacity:.7}
+nav.menu{position:sticky;top:0;z-index:10;display:flex;justify-content:center;gap:4px;margin:16px auto 0;padding:calc(env(safe-area-inset-top,0px) + 10px) 12px 10px;
+  background:rgba(5,3,11,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(220,194,143,.18);font-size:.82rem;letter-spacing:.2em}
+nav.menu a{color:var(--soft);text-decoration:none;padding:8px 13px;border-radius:99px;transition:.25s}
+nav.menu a.on{color:var(--gold);background:rgba(220,194,143,.1);box-shadow:inset 0 0 0 1px rgba(220,194,143,.35)}
+a:focus-visible{outline:1px solid #fff;outline-offset:3px}
+
+.body{max-width:580px;margin:0 auto;padding:56px 26px 40px}
+h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:300;font-size:2.2rem;letter-spacing:.12em;margin-bottom:6px}
+h2:after{content:"";display:block;width:46px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:14px 0 28px}
+p{color:#e6dff2;font-size:1.02rem;margin-bottom:22px}
+.sig{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.4rem;color:#fff;letter-spacing:.08em;margin-top:30px}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:22px 22px;margin-bottom:14px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.card{position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;top:0;left:22px;right:22px;height:1px;background:linear-gradient(90deg,transparent,rgba(220,194,143,.7),transparent)}
+.card b{display:block;font-family:"Cormorant Garamond",serif;font-weight:400;font-size:1.4rem;letter-spacing:.06em;line-height:1.3;margin-bottom:4px}
+.card span{display:block;color:var(--soft);font-size:.95rem;line-height:1.7}
+.card a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(220,194,143,.7);word-break:break-all}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px}
+.chips i{font-style:normal;padding:7px 18px;border:1px solid rgba(220,194,143,.35);border-radius:99px;font-size:.88rem;letter-spacing:.14em;color:#efe6fa}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid a{display:block;padding:18px 16px;border:1px solid rgba(220,194,143,.22);border-radius:14px;background:var(--glass);color:#fff;text-decoration:none;font-family:"Cormorant Garamond",serif;font-size:1.15rem;line-height:1.3;letter-spacing:.04em}
+.quote{text-align:center;padding:70px 26px;font-family:"Great Vibes","Snell Roundhand",cursive;font-size:clamp(2.2rem,10vw,3.2rem);line-height:1.3;color:#f6ecfb;
+  border-block:1px solid rgba(220,194,143,.4);box-shadow:inset 0 6px 0 -5px rgba(220,194,143,.25),inset 0 -6px 0 -5px rgba(220,194,143,.25);margin:30px 0;background:radial-gradient(ellipse 60% 100% at 50% 50%,rgba(130,90,210,.18),transparent 75%)}
+.btn{display:inline-block;margin-top:6px;padding:13px 32px;border-radius:99px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;letter-spacing:.25em;font-size:.82rem;background:rgba(220,194,143,.06)}
+.center{text-align:center}
+.thanks:before{content:"◆";display:block;color:var(--gold);font-family:serif;font-size:.8rem;margin-bottom:18px}
+.thanks{text-align:center;padding:70px 20px calc(env(safe-area-inset-bottom,0px) + 90px);font-family:"Great Vibes","Snell Roundhand",cursive;font-size:clamp(2.8rem,13vw,4.2rem)}
+.foot{text-align:center;padding:10px 20px calc(env(safe-area-inset-bottom,0px) + 70px);color:var(--gold);opacity:.7;font-size:.75rem;letter-spacing:.4em}
+@media (prefers-reduced-motion:reduce){.banner>*{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <div class="script" id="script">Learn everything</div>
+  <h1 id="title">Preetham's Website</h1>
+</header>
+<div class="handle">PREETHAM</div>
+<nav class="menu"><a href="#home">Home</a><a href="#about">About</a><a href="#interest">Interest</a><a href="#contact">Contact</a></nav>
+
+<main data-page="home" data-script="Learn everything" data-title="Preetham's Website">
+  <section class="body">
+    <h2>Welcome</h2>
+    <p>A quiet corner of the internet about me: what I'm curious about, what I enjoy, and where to find me.</p>
+    <div class="chips"><i>Curiosity</i><i>Discipline</i><i>Growth</i><i>Purpose</i></div>
+  </section>
+  <div class="quote">Progress over perfection</div>
+  <section class="body" style="padding-top:20px">
+    <h2>What I'm into</h2>
+    <div class="grid">
+      <a href="#interest">Cars &amp; Automotive</a><a href="#interest">Football</a>
+      <a href="#interest">Gaming</a><a href="#interest">AI &amp; Technology</a>
+      <a href="#interest">Web &amp; Digital Creation</a><a href="#interest">Web Series &amp; Movies</a>
+      <a href="#interest">Finance &amp; Business</a><a href="#interest">Curiosity &amp; Learning</a>
+    </div>
+    <div class="center" style="margin-top:50px"><a class="btn" href="#contact">FIND ME HERE</a></div>
+  </section>
+  <div class="thanks">Thank you</div>
+</main>
+
+<main data-page="about" data-script="Jack of all trade, master of none" data-title="About">
+  <section class="body">
+    <h2>About me</h2>
+    <p>I’m someone who values curiosity, discipline, and continuous growth. I enjoy exploring ideas, understanding how things work, and turning what I learn into something meaningful.</p>
+    <p>I believe in staying grounded while constantly pushing myself forward. Whether it’s learning something new, building something from scratch, or simply challenging my own limits, I prefer progress over perfection.</p>
+    <p class="sig">Curious by nature. Driven by purpose. Always evolving.</p>
+  </section>
+</main>
+
+<main data-page="interest" data-script="Interest is what defines me" data-title="Interest">
+  <section class="body">
+    <h2>Interests</h2>
+    <div class="card"><b>Cars &amp; Automotive</b><span>Performance, design, engineering, and everything that makes a great car.</span></div>
+    <div class="card"><b>Football</b><span>The game, tactics, competition, and the culture around it.</span></div>
+    <div class="card"><b>Gaming</b><span>Competitive games, immersive worlds, and exploring new experiences.</span></div>
+    <div class="card"><b>AI &amp; Technology</b><span>Artificial intelligence, emerging technologies, and the future of digital innovation.</span></div>
+    <div class="card"><b>Web &amp; Digital Creation</b><span>Websites, design, coding, and experimenting with digital projects.</span></div>
+    <div class="card"><b>Web Series &amp; Movies</b><span>Stories, characters, cinematography, and discovering interesting new series.</span></div>
+    <div class="card"><b>Finance &amp; Business</b><span>Markets, business ideas, strategy, and understanding how money moves.</span></div>
+    <div class="card"><b>Curiosity &amp; Learning</b><span>Exploring new ideas, unusual topics, and learning something simply because it’s interesting.</span></div>
+  </section>
+</main>
+
+<main data-page="contact" data-script="Find me here" data-title="Contact">
+  <section class="body">
+    <h2>Say hello</h2>
+    <div class="card"><b>Instagram</b><span><a href="https://instagram.com/preethuacharya_" rel="noopener">@preethuacharya_</a></span></div>
+    <div class="card"><b>Discord</b><span>@preethuacharya</span></div>
+    <div class="card"><b>Gmail</b><span><a href="mailto:preethamacharya667@gmail.com">preethamacharya667@gmail.com</a></span></div>
+    <div class="card"><b>Snapchat</b><span><a href="https://www.snapchat.com/add/preethu.fr" rel="noopener">preethu.fr</a></span></div>
+  </section>
+</main>
+
+<div class="foot">© PREETHAM</div>
+
+<script>
+const pages=[...document.querySelectorAll('[data-page]')];
+function route(){
+  const h=(location.hash||'#home').slice(1);
+  const p=pages.find(x=>x.dataset.page===h)||pages[0];
+  pages.forEach(x=>x.classList.toggle('on',x===p));
+  document.getElementById('script').textContent=p.dataset.script;
+  document.getElementById('title').textContent=p.dataset.title;
+  document.querySelectorAll('nav.menu a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+p.dataset.page));
+  window.scrollTo(0,0);
+}
+addEventListener('hashchange',route);route();
+</script>
+</body>
+</html>
